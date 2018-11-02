@@ -29,11 +29,11 @@ $input = ARGV[0]
 if File.directory?($input)
   targets = Dir["#{$input}/**/*.mkv"]
   targets.each do |file|
-      fileinputs << file
-    end
-  else
-    puts "Please use a directory for input"
-    exit
+    fileinputs << file
+  end
+else
+  puts "Please use a directory for input"
+  exit
 end
 
 $write_to_csv = Array.new
