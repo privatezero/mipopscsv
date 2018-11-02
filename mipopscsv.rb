@@ -2,7 +2,8 @@
 require 'open3'
 
 def CheckSizemp4(input)
-  targetmp4 = Dir["#{$input}/**/" + File.basename(input,".mkv") + '.mp4'][0]
+  targetdir = File.dirname(input)
+  targetmp4 = Dir["#{targetdir}/**/*.mp4"][0]
   if ! targetmp4.nil?
     @mp4_sizemb = (File.size(targetmp4).to_f / 1000.0**2).round(2).to_s
   else
